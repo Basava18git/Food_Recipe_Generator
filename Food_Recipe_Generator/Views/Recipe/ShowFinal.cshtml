@@ -1,0 +1,122 @@
+﻿
+@model List<Food_Recipe_Generator.Controllers.MenuProperties>
+@{
+    ViewData["Title"] = "Menu";
+
+    var ingredientList = Model.Select(i => i.Ingredient_Name.ToLower()).ToList();
+    string finalDish = "No recipe found.";
+
+
+    if (ingredientList.Contains("egg") && ingredientList.Contains("onion") && ingredientList.Contains("mirchi"))
+    {
+        finalDish = "Omelette";
+    }
+    else if (ingredientList.Contains("potato"))
+    {
+        finalDish = "French Fries";
+    }
+    else if (ingredientList.Contains("chicken"))
+    {
+        finalDish = "Chicken Curry";
+    }
+    else if (ingredientList.Contains("fish"))
+    {
+        finalDish = "Fish Curry";
+    }
+    else if (ingredientList.Contains("beef"))
+    {
+        finalDish = "Beef Curry";
+    }
+    else if (ingredientList.Contains("vegetable"))
+    {
+        finalDish = "Vegetable Curry";
+    }
+   
+
+
+
+}
+<h3 class="alert alert-success">🍽️ Final Dish: @finalDish</h3>
+
+
+<div class="text-center">
+   
+    <br />
+    <a asp-action="RecipePage" class="btn btn-primary">Add More Ingredients</a>
+    <br />
+    @* <table class="table">
+        <thead>
+            <tr>
+                <th>ingredients</th>
+                <th>Final Dish</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var ingredient in Model)
+            {
+                <tr>
+                    <td>@ingredient.Ingredient_Name</td>
+                    <td>
+                        @if (ingredient.Ingredient_Name.ToLower() == "egg" && ingredient.Ingredient_Name.ToLower() == "onion" && ingredient.Ingredient_Name.ToLower() == "mirchi")
+                        {
+                            <p>omlette</p>   
+                        }
+                        else if (ingredient.Ingredient_Name.ToLower() == "potato")
+                        {
+                            <p>French Fries</p>
+                        }
+                        else if (ingredient.Ingredient_Name.ToLower() == "chicken")
+                        {
+                            <p>Chicken Curry</p>
+                        }
+                        else if (ingredient.Ingredient_Name.ToLower() == "fish")
+                        {
+                            <p>Fish Curry</p>
+                        }
+                        else if (ingredient.Ingredient_Name.ToLower() == "beef")
+                        {
+                            <p>Beef Curry</p>
+                        }
+                        else if (ingredient.Ingredient_Name.ToLower() == "vegetable")
+                        {
+                            <p>Vegetable Curry</p>
+                        }
+                        else
+                        {
+                            <p>No Recipe found for Specific</p>
+                        }
+
+                    </td>
+                    <td>
+                        <a asp-action="RecipePage" class="action-button edit-button" asp-route-id="@ingredient.Id">Edit</a>
+                        <a asp-action="Delete_id" asp-controller="Recipe" class="action-button delete-button" asp-route-id="@ingredient.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> *@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ingredients</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ingredient in Model)
+            {
+                <tr>
+                    <td>@ingredient.Ingredient_Name</td>
+                    <td>
+                        <a asp-action="RecipePage" class="action-button edit-button" asp-route-id="@ingredient.Id">Edit</a>
+                        <a asp-action="Delete_id" asp-controller="Recipe" class="action-button delete-button" asp-route-id="@ingredient.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
