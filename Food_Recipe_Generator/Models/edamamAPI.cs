@@ -1,10 +1,10 @@
 ﻿
-
+using Food_Recipe_Generator.Interfaces;
 using Newtonsoft.Json.Linq;
 
 namespace Food_Recipe_Generator.Models
 {
-    public class edamamAPI
+    public class edamamAPI : IEdmamAPI
     {
         public async Task<FoodContents?> GetRecipe(string ingredient)
         {
@@ -44,6 +44,11 @@ namespace Food_Recipe_Generator.Models
 
                 return null;
             }
+        }
+
+        public void Method1()
+        {
+            throw new NotImplementedException();
         }
     }
 }
