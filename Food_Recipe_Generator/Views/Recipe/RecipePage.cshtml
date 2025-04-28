@@ -1,4 +1,4 @@
-﻿@model Food_Recipe_Generator.Controllers.MenuProperties
+﻿@model Food_Recipe_Generator.Models.FoodContents
 
 
 <div class="text-center">
@@ -8,10 +8,13 @@
 <form asp-action="AddIngredient" asp-controller="Recipe">
     <input hidden class="form-control" placeholder="0" type="number" asp-for="Id" />
     <label class="mt-4">Ingredient Name</label>
-    <input class="form-control" placeholder="Enter Ingredient Name" type="text" asp-for="Ingredient_Name" />
+    <input class="form-control" placeholder="Enter Ingredient Name" type="text" asp-for="ingredient" />
     <button type="submit" class="btn btn-primary mt-4">Add</button>
     
 </form>
 <form asp-action="ShowFinal" asp-controller="Recipe">
-        <button type="submit" class="btn btn-primary mt-4">Generate Recipe</button>
+    <input hidden class="form-control" placeholder="0" type="number" asp-for="Id" />
+    <label class="mt-4">Ingredient Name</label>
+    <input class="form-control" placeholder="Enter Ingredient Name" type="text" asp-for="ingredient" />
+    <button type="submit" class="btn btn-primary mt-4">Generate Recipe</button>
 </form>

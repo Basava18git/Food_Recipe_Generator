@@ -5,12 +5,20 @@ namespace Food_Recipe_Generator.Models
 {
     public class RecipeDBContext:DbContext
     {
-        public DbSet<MenuProperties> recipes { get; set; }
+       // public DbSet<MenuProperties> recipes { get; set; }
 
-       public RecipeDBContext(DbContextOptions<RecipeDBContext> recipes)
-            : base(recipes)
+       //public RecipeDBContext(DbContextOptions<RecipeDBContext> recipes)
+       //     : base(recipes)
+       // {
+       // }
+
+        public DbSet<FoodContents> FoodIngred { get; set; }
+
+        public RecipeDBContext(DbContextOptions<RecipeDBContext> FoodIngred)
+             : base(FoodIngred)
         {
         }
-  
+
+
     }
 }
